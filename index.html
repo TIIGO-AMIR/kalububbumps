@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: #031c50;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      flex-wrap: nowrap;
+      width:100%;
+      position:fixed;
+       z-index: 100;
+    }
+
+    /* Left section (logo + text) */
+    .left-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 70px;
+      height: auto;
+      border-radius:30%;
+    }
+
+    .school-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .school-info h1 {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .school-info p {
+      font-size: 1.2rem;
+      margin: 1px 0;
+    }
+
+    .motto {
+      color: #ff6600;
+      font-style: italic;
+    }
+
+    /* Navbar (desktop) */
+    .navbar {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 60px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: lighter;
+    }
+
+    /* Hamburger icon (hidden on desktop) */
+    .menu-icon {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      user-select: none;
+    }
+    /* === HERO SECTION === */
+    .hero {
+      position: relative;
+      width: 95%;
+      height: 80vh;
+      overflow: hidden;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+     .hero::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.45); /* dark overlay */
+    }
+
+    /* === SLIDER CONTAINER === */
+    .slider {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    /* === INDIVIDUAL SLIDES === */
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: fade 20s infinite;
+    }
+
+    .slide1 {
+      background-image: url(class.jpg);
+      animation-delay: 0s;
+    }
+
+    .slide2 {
+      background-image: url(netball.jpg);
+      animation-delay: 5s;
+    }
+
+    .slide3 {
+      background-image: url(students.jpg);
+      animation-delay: 10s;
+    }
+
+    /* === FADE ANIMATION === */
+    @keyframes fade {
+      0% {
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      30% {
+        opacity: 1;
+      }
+      40% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* === CONTENT ON TOP === */
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 20px 30px;
+      width:100vw;
+      border-radius: 10px;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #ffff;
+    }
+
+
+    .btn {
+      background-color: #e94e1b;
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ff6600;
+    }
+    .welcome-section {
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin: 40px auto;
+  max-width: 1200px;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.welcome-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.welcome-image img {
+  width: 280px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.welcome-text {
+  flex: 1;
+  text-align: center;
+}
+
+.welcome-text h2 {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.welcome-text p {
+  color: black;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+.programs-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  color: #d35400;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+.programs-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.program-card {
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 320px;
+}
+
+
+.program-card h3 {
+  color: black;
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.program-card p {
+  color: black;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+.footer {
+  background-color: #031c50;
+  color: #fff;
+  padding: 50px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 30px;
+}
+
+.footer-logo {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.footer-left h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.footer-left p {
+  margin: 2px 0;
+}
+
+.footer-left .motto {
+  color: #ff6600;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.footer-center p {
+  font-size: 0.95rem;
+  max-width: 400px;
+  line-height: 1.6;
+  color: #e0e7ff;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.footer-links li {
+  margin: 6px 0;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ff6600;
+}
+
+.footer-btn {
+  background-color: #ff4500;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer-btn:hover {
+  background-color: #e03e00;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.footer-bottom strong {
+  color: #fff;
+}
+
+.footer-bottom span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .programs-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .program-card {
+    max-width: 90%;
+  }
+}
+
+
+    
+   
+
+    /* --- Responsive Section --- */
+    @media (max-width: 768px) {
+      /* Hide school info */
+      .hero h2 {
+        font-size: 1.5rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+      .school-info {
+        display: none;
+      }
+
+      /* Keep logo and menu icon on the same line */
+      .header {
+        justify-content: space-between;
+      }
+
+      .menu-icon {
+        display: block;
+        z-index: 20;
+      }
+      
+
+      /* Hide nav links initially */
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #031c50;
+        width: 200px;
+        padding: 15px;
+        border-radius: 0 0 10px 10px;
+        text-align: right;
+        z-index: 10;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Show menu when toggled */
+      .nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease;
+      }
+      .welcome-container {
+        flex-direction: column;
+      }
+      .welcome-section {
+        flex-direction: column;
+      }
+
+      .welcome-text {
+        display: flex;
+      }
+
+      .welcome-text h2 {
+        display:none;
+      }
+
+      .welcome-text p {
+        font-size: 1rem;
+      }
+      .programs-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .program-card {
+        max-width: 90%;
+      }
+      /* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .welcome-image img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .welcome-text p {
+    font-size: 0.95rem;
+  }
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .footer-logo{
+    display:none;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-btn {
+    margin-top: 10px;
+  }
+}
+
+
+    }
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalububbu Moslem Primary School</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="left-section">
+        <img src="BADGE.jpg" alt="School Logo" class="logo" />
+        <div class="school-info">
+          <h1>Kalububbu Moslem Primary School</h1>
+          <p><strong>P.O.Box 1388, Masaka</strong></p>
+          <p class="motto">"In Allah we Believe"</p>
+        </div>
+      </div>
+
+      <nav class="navbar">
+        <div class="menu-icon" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href='index.html'>Home</a></li>
+          <li><a href='about.html'>About</a></li>
+          <li><a href='academics.html'>Academics</a></li>
+          <li><a href='contact.html'>Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+   <script>
+      // Responsive navbar toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
+    <section class="hero">
+      <div class="slider">
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+      </div>
+
+      <div class="hero-content">
+        <h2>“Welcome to Kalububbu Moslem Primary School”</h2>
+        <p>“In Allah We Believe”</p>
+        <a class='btn' href='about.html'>Learn More</a>
+      </div>
+    </section>
+    <section class="welcome-section">
+  <div class="welcome-container">
+    <div class="welcome-image">
+      <img src="HEAD TEACHERS IMAGE.jpg" alt="Headteacher of Kalububbu Moslem Primary School">
+    </div>
+    <div class="welcome-text">
+      <h2>"Welcome to Kalububbu Moslem Primary School!"</h2>
+      <p>
+        We're thrilled to have you visit our website and learn more about our vibrant school community.
+        At Kalububbu M.P.S, we strive to provide a nurturing and inclusive environment where students
+        can grow, learn, and thrive. Our dedicated team of educators and staff are passionate about
+        empowering students to reach their full potential.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <section class="programs-section">
+  <h2 class="section-title">Our Programs</h2>
+  <div class="programs-container">
+    <div class="program-card">
+      <h3>Academic Excellence</h3>
+      <p>
+        We focus on holistic education from Primary One to Seven, guided by a skilled teaching team.
+      </p>
+    </div>
+
+    <div class="program-card">
+      <h3>Spiritual Growth</h3>
+      <p>
+        Our programs nurture moral values and respect for all faiths through daily devotion and guidance.
+      </p>
+    </div>
+
+    <div class="program-card">
+      <h3>Co-curricular Activities</h3>
+      <p>
+        Sports, debates, and music enhance teamwork, leadership, and confidence in every learner.
+      </p>
+    </div>
+  </div>
+</section>
+
+  </body>
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="BADGE.jpg" alt="Kalububbu Moslem Primary School Logo" class="footer-logo" />
+      <h3>Kalububbu Moslem Primary school</h3>
+      <p><strong>P.O.Box 1388, Masaka</strong></p>
+      <p class="motto">“In Allah we Believe”</p>
+    </div>
+
+    <div class="footer-center">
+      <p>
+        Providing quality education that empowers learners with knowledge, character,
+        and creativity for lifelong success.
+      </p>
+    </div>
+
+    <div class="footer-right">
+      <ul class="footer-links">
+        <li><a href='index.html'>Home</a></li>
+        <li><a href='about.html'>About</a></li>
+        <li><a href='contact.html'>Contact</a></li>
+
+      </ul>
+      <a href='contact.html'><button class="footer-btn">Talk to us today</button></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      ©2025 | All rights reserved by Kalububbu M.P.S ||
+      Designed & Developed by <strong>AMIR-TECH SOLUTIONS</strong>
+      <span>@ +256-709780045 & +256-765310527 | amirtech@gmail.com</span>
+    </p>
+  </div>
+</footer>
+
+</html>

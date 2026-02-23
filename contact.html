@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+   .header {
+      background-color: #031c50;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      flex-wrap: nowrap;
+      width:100%;
+      position:fixed;
+       z-index: 100;
+    }
+
+    /* Left section (logo + text) */
+    .left-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 70px;
+      height: auto;
+      border-radius:30%;
+    }
+
+    .school-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .school-info h1 {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .school-info p {
+      font-size: 1.2rem;
+      margin: 1px 0;
+    }
+
+    .motto {
+      color: #ff6600;
+      font-style: italic;
+    }
+
+    /* Navbar (desktop) */
+    .navbar {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 60px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: lighter;
+    
+    }
+
+  
+
+    /* Hamburger icon (hidden on desktop) */
+    .menu-icon {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      user-select: none;
+    }
+    /* Hero Section Styles */
+.hero-section {
+  position: relative;
+  height: 90vh; /* Full-screen hero */
+  background: url(students1.jpg) no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+
+/* Overlay effect */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.45); /* dark transparent overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Text styling */
+.hero-content {
+  text-align: center;
+  z-index: 1;
+  padding: 20px;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+
+
+    
+.footer {
+  background-color: #031c50;
+  color: #fff;
+  padding: 50px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1100px;
+  margin: auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 30px;
+}
+
+.footer-logo {
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.footer-left h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.footer-left p {
+  margin: 2px 0;
+}
+
+.footer-left .motto {
+  color: #ff6600;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.footer-center p {
+  font-size: 0.95rem;
+  max-width: 400px;
+  line-height: 1.6;
+  color: #e0e7ff;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.footer-links li {
+  margin: 6px 0;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #ff6600;
+}
+
+.footer-btn {
+  background-color: #ff4500;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.footer-btn:hover {
+  background-color: #e03e00;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: #cbd5e1;
+}
+
+.footer-bottom strong {
+  color: #fff;
+}
+
+.footer-bottom span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.8rem;
+}
+.contact-section {
+  background-color: #f9f9f9;
+  padding: 60px 10%;
+  font-family: "Poppins", sans-serif;
+}
+
+.contact-container {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap; /* stacks on smaller screens */
+}
+
+/* Contact Info Box */
+.contact-info {
+  flex: 1;
+  min-width: 280px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: left;
+}
+
+.contact-info h2 {
+  color: #ff5500;
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  color: black;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Contact Form Box */
+.contact-form {
+  flex: 1;
+  min-width: 280px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+}
+
+.contact-form h2 {
+  color: #ff5500;
+  margin-bottom: 20px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #ffeae2;
+  font-size: 1rem;
+  outline: none;
+}
+
+.contact-form button {
+  background: #ff5500;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #e04300;
+}
+
+
+/* Hover effect */
+.program-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+  
+  /* Responsive adjustments */
+@media (max-width: 768px) {
+    .school-info {
+        display: none;
+      }
+
+      /* Keep logo and menu icon on the same line */
+      .header {
+        justify-content: space-between;
+      }
+
+      .menu-icon {
+        display: block;
+        z-index: 20;
+      }
+      
+
+      /* Hide nav links initially */
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #031c50;
+        width: 200px;
+        padding: 15px;
+        border-radius: 0 0 10px 10px;
+        text-align: right;
+        z-index: 10;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+      }
+
+      /* Show menu when toggled */
+      .nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease;
+      }
+  .hero-section {
+    height: 60vh;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .footer-right {
+    text-align: center;
+  }
+
+  .footer-btn {
+    margin-top: 10px;
+  }
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-info,
+  .contact-form {
+    max-width: 100%;
+  }
+  .footer-logo{
+    display:none;
+  }
+}
+
+  </style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalububbu Moslem Primary School</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="left-section">
+        <img src="BADGE.jpg" alt="School Logo" class="logo" />
+        <div class="school-info">
+          <h1>Kalububbu Moslem Primary School</h1>
+          <p><strong>P.O.Box 1388, Masaka</strong></p>
+          <p class="motto">"In Allah we Believe"</p>
+        </div>
+      </div>
+
+      <nav class="navbar">
+        <div class="menu-icon" id="menu-toggle">&#9776;</div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href='index.html'>Home</a></li>
+          <li><a href='about.html'>About</a></li>
+          <li><a href='academics.html'>Academics</a></li>
+          <li><a href='contact.html'>Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+   <script>
+      // Responsive navbar toggle
+      const menuToggle = document.getElementById("menu-toggle");
+      const navLinks = document.getElementById("nav-links");
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+    </script>
+    <section class="hero-section">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Get in Touch</h1>
+      <p>We’d love to hear from you!</p>
+    </div>
+  </div>
+</section>
+<section class="contact-section">
+  <div class="contact-container">
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h2>Contact Information</h2>
+      <p><strong>Address:</strong> Kalububbu Moslem Primary School, Sembabule District, Uganda</p>
+      <p><strong>Phone:</strong> +256 700 000 000</p>
+      <p><strong>Email:</strong> info@kalububbumsprimary.ac.ug</p>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+      <h2>Send Us a Message</h2>
+      <form>
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="BADGE.jpg" alt="Kalububbu Moslem Primary School Logo" class="footer-logo" />
+      <h3>Kalububbu Moslem Primary school</h3>
+      <p><strong>P.O.Box 1388, Masaka</strong></p>
+      <p class="motto">“In Allah we Believe”</p>
+    </div>
+
+    <div class="footer-center">
+      <p>
+        Providing quality education that empowers learners with knowledge, character,
+        and creativity for lifelong success.
+      </p>
+    </div>
+
+    <div class="footer-right">
+      <ul class="footer-links">
+        <li><a href='index.html'>Home</a></li>
+        <li><a href='about.html'>About</a></li>
+        <li><a href='contact.html'>Contact</a></li>
+    
+      </ul>
+      <a href='contact.html'><button class="footer-btn">Talk to us today</button></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      ©2025 | All rights reserved by Kalububbu M.P.S ||
+      Designed & Developed by <strong>AMIR-TECH SOLUTIONS</strong>
+      <span>@ +256-709780045 & +256-765310527 | amirtech@gmail.com</span>
+    </p>
+  </div>
+</footer>
+
+</html>
